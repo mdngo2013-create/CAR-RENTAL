@@ -1,9 +1,3 @@
-/* ==========================================================
-   ملف التنسيق الموحد: style.css
-   تصميم فائق الشفافية (Ultra Glassmorphism)
-   ========================================================== */
-
-/* ضبط الخطوط والخلفية الأساسية */
 body {
     font-family: Tahoma, Arial, sans-serif;
     font-size: 14px;
@@ -11,14 +5,11 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-
-    /* تقليل التعتيم لـ 25% فقط لتظهر صورة سيارات النيون بوضوح تام وكامل */
     background: linear-gradient(rgba(10, 15, 30, 0.25), rgba(10, 15, 30, 0.25)), 
                 url('car_bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* الرأسية (Header) - شفافة بزجاج كريستالي */
 #header {
     background-color: rgba(15, 23, 42, 0.35);
     backdrop-filter: blur(8px);
@@ -43,7 +34,6 @@ body {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* شريط التنقل والقائمة (Navigation) */
 #nav {
     background-color: rgba(30, 58, 138, 0.30);
     backdrop-filter: blur(8px);
@@ -77,12 +67,11 @@ body {
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* صندوق المحتوى الرئيسي (Content Box) - زجاجي عالي الشفافية */
 #content {
     width: 85%;
     max-width: 980px;
     margin: 25px auto;
-    background-color: rgba(15, 23, 42, 0.40); /* شفافية عالية جداً تتيح رؤية السيارات */
+    background-color: rgba(15, 23, 42, 0.40);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 25px 30px;
@@ -90,6 +79,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
     color: #ffffff;
+    box-sizing: border-box;
 }
 
 #content h3 {
@@ -108,14 +98,11 @@ body {
     font-weight: bold;
 }
 
-/* ==========================================================
-   تنسيق الجداول - شديدة الشفافية
-   ========================================================== */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 15px 0;
-    background-color: rgba(255, 255, 255, 0.08); /* شبه زجاجي خفيف */
+    background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 8px;
@@ -136,26 +123,44 @@ table th {
     font-weight: bold;
 }
 
-/* صف التفاصيل في صفحة السيارات */
 .details-row {
     background-color: rgba(15, 23, 42, 0.50);
 }
 
 .car-details {
-    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 15px;
+    gap: 20px;
+    text-align: right;
+    flex-wrap: wrap;
+}
+
+.car-details-img {
+    flex-shrink: 0;
+}
+
+.car-img {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.car-details-info {
     color: #f8fafc;
     font-size: 13px;
-    text-align: right;
     line-height: 1.8;
 }
 
-.car-details strong {
+.car-details-info strong {
     color: #60a5fa;
 }
 
-/* ==========================================================
-   تنسيق النماذج وحقول الإدخال والأزرار
-   ========================================================== */
 fieldset {
     border: 1px solid rgba(255, 255, 255, 0.25);
     padding: 20px;
@@ -184,43 +189,133 @@ label {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* حقول الإدخال النصية الشفافة */
 .form-input {
     width: 95%;
     padding: 9px;
     border: 1px solid rgba(255, 255, 255, 0.35);
     background-color: rgba(15, 23, 42, 0.45);
-    fon}
-/* تنسيق تفاصيل السيارة مع الصورة */
-.car-details {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 12px 15px;
-    gap: 20px;
-    text-align: right;
+    font-family: inherit;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
-.car-details-img {
-    flex-shrink: 0;
+.form-input:focus {
+    border-color: #60a5fa;
+    background-color: rgba(15, 23, 42, 0.65);
+    outline: none;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
 }
 
-.car-img {
-    width: 140px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+.btn {
+    background-color: rgba(37, 99, 235, 0.65);
+    color: #ffffff;
+    padding: 10px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(37, 99, 235, 0.9);
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.7);
+}
+
+.error-msg {
+    color: #f87171;
+    font-size: 12px;
     display: block;
+    margin-top: 3px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-.car-details-info {
-    color: #f8fafc;
-    font-size: 13px;
-    line-height: 1.9;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.70);
+    z-index: 1000;
 }
 
-.car-details-info strong {
+.modal-content {
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    width: 85%;
+    max-width: 520px;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.modal-content h3 {
     color: #60a5fa;
+    margin-top: 0;
+}
+
+#footer {
+    background-color: rgba(15, 23, 42, 0.40);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #cbd5e0;
+    text-align: center;
+    padding: 14px;
+    margin-top: 35px;
+    font-size: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* تعديلات متجاوبة لشاشات الهواتف المحمولة (Responsive Media Queries) */
+@media screen and (max-width: 768px) {
+    #content {
+        width: 95%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    #nav ul li {
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #nav ul li a {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    table th, table td {
+        padding: 6px;
+    }
+
+    .car-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .form-input {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 92%;
+        margin: 20% auto;
+    }
 }
