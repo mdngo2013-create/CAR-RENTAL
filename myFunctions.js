@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // 1. إظهار / إخفاء تفاصيل السيارة عبر jQuery
+   
     $(".detail-toggle").change(function () {
         var detailsRow = $(this).closest("tr").next(".details-row");
         if ($(this).is(":checked")) {
@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
     });
 
-    // 2. الضغط على زر متابعة لإظهار الفورم
+    
     $("#btnContinue").click(function () {
         var selectedCars = $(".car-select:checked");
         if (selectedCars.length === 0) {
@@ -23,19 +23,19 @@ $(document).ready(function () {
         }, 500);
     });
 
-    // 3. إغلاق نافذة النتيجة
+  
     $("#btnCloseModal").click(function () {
         $("#resultModal").fadeOut();
     });
 
-    // 4. التحقق من صحة المدخلات وإرسال النموذج
+   
     $("#btnSubmit").click(function () {
         var isValid = true;
 
-        // تفريغ رسائل الأخطاء
+     
         $(".error-msg").text("");
 
-        // الحقول
+    
         var fullName = $.trim($("#fullName").val());
         var nationalId = $.trim($("#nationalId").val());
         var startDateStr = $.trim($("#startDate").val());
@@ -43,7 +43,7 @@ $(document).ready(function () {
         var phone = $.trim($("#phone").val());
         var email = $.trim($("#email").val());
 
-        // التحقق من الاسم: أحرف هجائية عربية ومسافات فقط (يقبل القيمة الفارغة)
+        
         if (fullName !== "") {
             var arabicPattern = /^[\u0621-\u064A\s]+$/;
             if (!arabicPattern.test(fullName)) {
@@ -52,7 +52,6 @@ $(document).ready(function () {
             }
         }
 
-        // التحقق من الرقم الوطني: 11 خانة، إلزامي، أول خانتين (01 إلى 14)
         if (nationalId === "") {
             $("#errNationalId").text("الرقم الوطني إلزامي.");
             isValid = false;
@@ -64,7 +63,7 @@ $(document).ready(function () {
             }
         }
 
-        // التحقق من تواريخ الحجز بصيغة yyyy-mm-dd
+     
         var datePattern = /^\d{4}-\d{2}-\d{2}$/;
         var sDate, eDate;
 
@@ -96,7 +95,7 @@ $(document).ready(function () {
             }
         }
 
-        // التحقق من أن تاريخ النهاية لاحق لتاريخ البداية
+       
         if (sDate && eDate && !isNaN(sDate.getTime()) && !isNaN(eDate.getTime())) {
             if (eDate <= sDate) {
                 $("#errEndDate").text("يجب أن يكون تاريخ النهاية لاحقاً لتاريخ البداية.");
@@ -114,7 +113,6 @@ $(document).ready(function () {
             }
         }
 
-        // التحقق من الإيميل (يقبل فارغ)
         if (email !== "") {
             var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(email)) {
@@ -123,13 +121,13 @@ $(document).ready(function () {
             }
         }
 
-        // إذا نجح التحقق، يتم الحساب وعرض النتيجة
+     
         if (isValid) {
             calculateAndShowResult(sDate, eDate);
         }
     });
 
-    // دالة حساب عدد الأيام والمجاميع وتطبيق الخصم
+   
     function calculateAndShowResult(startDate, endDate) {
         // حساب الفارق الزمني بالأيام
         var timeDiff = endDate.getTime() - startDate.getTime();
@@ -150,7 +148,7 @@ $(document).ready(function () {
 
         carsHtml += "</ul>";
 
-        // تطبيق خصم 10% إذا تجاوزت المدة 7 أيام
+      
         var discount = 0;
         if (days > 7) {
             discount = subTotal * 0.10;
